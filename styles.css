@@ -330,33 +330,31 @@ button, input, select, textarea { font: inherit; }
   border-radius: var(--r-lg);
   padding: 1.75rem;
   color: var(--white);
+  position: relative;
 }
-.sidebar-tag {
-  font-size: .7rem; font-weight: 700; letter-spacing: .09em;
-  text-transform: uppercase; color: var(--orange);
-  margin-bottom: .625rem;
+.sidebar-logo {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  height: 28px; width: auto; opacity: .85;
 }
-.sidebar-h3 {
-  font-size: 1.5rem; font-weight: 900;
-  color: var(--white); letter-spacing: -.025em;
+.sidebar-headline {
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--white); line-height: 1.4;
+  margin-bottom: 1.25rem;
+  padding-right: 4rem;
+}
+.sidebar-headline em strong {
+  color: var(--orange); font-style: italic; font-weight: 900;
+}
+.sidebar-headline strong { color: var(--orange); font-weight: 900; }
+.sidebar-stats {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: .25rem .5rem;
+  padding-block: 1rem;
+  border-top: 1px solid rgba(255,255,255,.1);
   margin-bottom: 1.25rem;
 }
-.sidebar-offer-items {
-  display: flex; flex-direction: column; gap: .75rem;
-  margin-bottom: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding-top: 1.25rem;
-}
-.sidebar-offer-item {
-  display: flex; align-items: baseline; gap: .625rem;
-}
-.sidebar-num {
-  font-size: 1.75rem; font-weight: 900;
-  color: var(--orange); letter-spacing: -.03em; line-height: 1;
-}
-.sidebar-label {
-  font-size: .82rem; color: rgba(255,255,255,.6);
-}
+.sidebar-stats span { font-size: .78rem; color: rgba(255,255,255,.7); }
+.sidebar-sep { color: var(--orange); font-size: .55rem; }
 .sidebar-note {
   font-size: .72rem; color: rgba(255,255,255,.3);
   text-align: center; margin-top: .875rem;
