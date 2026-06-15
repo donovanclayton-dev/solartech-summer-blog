@@ -352,17 +352,15 @@ button, input, select, textarea { font: inherit; }
   border-radius: var(--r-lg);
   padding: 1.75rem;
   color: var(--white);
-  position: relative;
 }
 .sidebar-logo {
-  position: absolute; top: 1.5rem; right: 1.5rem;
-  height: 28px; width: auto; opacity: .85;
+  display: block; height: 28px; width: auto;
+  opacity: .85; margin-bottom: 1.25rem; margin-left: auto;
 }
 .sidebar-headline {
   font-size: 1.3rem; font-weight: 700;
   color: var(--white); line-height: 1.4;
-  margin-bottom: 1.25rem;
-  padding-right: 4rem;
+  margin-bottom: 1.5rem;
 }
 .sidebar-headline em strong {
   color: var(--orange); font-style: italic; font-weight: 900;
@@ -375,7 +373,7 @@ button, input, select, textarea { font: inherit; }
   border-top: 1px solid rgba(255,255,255,.1);
   margin-bottom: 1.25rem;
 }
-.sidebar-stats span { font-size: .78rem; color: rgba(255,255,255,.7); }
+.sidebar-stats span { font-size: .78rem; color: rgba(255,255,255,.7); white-space: nowrap; }
 .sidebar-sep { color: var(--orange); font-size: .55rem; }
 .sidebar-note {
   font-size: .72rem; color: rgba(255,255,255,.3);
