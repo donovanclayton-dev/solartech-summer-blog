@@ -86,6 +86,11 @@ button, input, select, textarea { font: inherit; }
   box-shadow: 0 6px 28px rgba(245,128,38,.45);
   transform: translateY(-1px);
 }
+.btn-outline {
+  background: transparent; color: var(--navy);
+  border: 2px solid var(--navy); padding: .7rem 1.75rem;
+}
+.btn-outline:hover { background: var(--navy); color: var(--white); }
 .btn-cta {
   background: var(--orange); color: var(--white);
   padding: .625rem 1.5rem; font-size: .8rem;
@@ -114,29 +119,32 @@ button, input, select, textarea { font: inherit; }
 
 /* ── Article Hero ─────────────────────────────────── */
 .article-hero {
-  position: relative;
-  min-height: 70vh;
-  display: flex; align-items: flex-end;
+  background: var(--surface);
   padding-top: 64px;
+  padding-bottom: 0;
+  border-bottom: 1px solid var(--border);
 }
-.article-hero-img {
-  position: absolute; inset: 0;
+.article-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: calc(100vh - 64px);
 }
-.article-hero-img img {
+.article-hero-text {
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 4vw, 4rem) clamp(3rem, 6vw, 6rem) 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.article-hero-image {
+  overflow: hidden;
+}
+.article-hero-image img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center 75%;
-}
-.article-hero-overlay {
-  position: relative; z-index: 1; width: 100%;
-  background: linear-gradient(to top,
-    rgba(10,18,35,.92) 0%,
-    rgba(10,18,35,.7) 50%,
-    rgba(10,18,35,.25) 100%);
-  padding-block: 4rem 3.5rem;
+  object-fit: cover; object-position: center 70%;
+  display: block;
 }
 .article-meta {
   display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 .article-category {
   background: var(--orange); color: var(--white);
@@ -145,17 +153,20 @@ button, input, select, textarea { font: inherit; }
   border-radius: var(--r-sm);
 }
 .article-date {
-  font-size: .82rem; color: rgba(255,255,255,.5);
+  font-size: .82rem; color: var(--text-3);
 }
 .article-h1 {
-  font-size: clamp(2rem, 4.5vw, 3.75rem);
-  font-weight: 900; color: var(--white);
-  line-height: 1.08; letter-spacing: -.03em;
-  max-width: 800px; margin-bottom: 1.25rem;
+  font-size: clamp(1.875rem, 3.5vw, 3.25rem);
+  font-weight: 900; color: var(--navy-dark);
+  line-height: 1.1; letter-spacing: -.035em;
+  margin-bottom: 1.25rem;
 }
-.article-h1-sub { color: var(--orange); }
+.article-h1-sub { color: var(--navy); }
 .article-byline {
-  font-size: .82rem; color: rgba(255,255,255,.45);
+  font-size: .85rem; color: var(--text-3); margin-bottom: 2rem;
+}
+.article-hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
 }
 
 /* ── Article Layout ───────────────────────────────── */
@@ -405,28 +416,24 @@ button, input, select, textarea { font: inherit; }
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .article-sidebar {
-    position: static;
-  }
-  .sidebar-card {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem 2rem;
-    align-items: center;
-  }
-  .sidebar-offer-items {
-    flex-direction: row; gap: 1.5rem;
-    border-top: none; padding-top: 0;
-    margin-bottom: 0;
-    grid-column: 1 / -1;
-    order: -1;
-  }
-  .btn-sidebar { grid-column: 2; }
+  .article-sidebar { position: static; }
   .sidebar-note { display: none; }
 }
 
+@media (max-width: 860px) {
+  .article-hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .article-hero-text {
+    padding: 3rem 0 2.5rem;
+  }
+  .article-hero-image {
+    height: 320px;
+  }
+}
+
 @media (max-width: 680px) {
-  .article-h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
   .stat-row { grid-template-columns: 1fr; gap: 0; }
   .inline-cta-inner { flex-direction: column; align-items: flex-start; }
   .inline-cta-btn { align-self: stretch; text-align: center; }
@@ -434,6 +441,8 @@ button, input, select, textarea { font: inherit; }
   .bottom-cta .btn { width: 100%; justify-content: center; }
   .sidebar-card { grid-template-columns: 1fr; }
   .btn-sidebar { width: 100%; justify-content: center; }
+  .article-hero-actions { flex-direction: column; }
+  .article-hero-actions .btn { width: 100%; justify-content: center; }
   .footer-inner { flex-direction: column; }
   .footer-contact { align-items: flex-start; }
 }
